@@ -1,0 +1,30 @@
+<?php
+
+file_put_contents("fb.txt", file_get_contents("php://input"));
+
+$fb = file_get_contents("fb.txt");
+
+$fb = json_decode($fb);
+
+$rid = $fb->entry[0]->messaging[0]->sender->id;
+
+$token = "verify page token";
+
+$data = array(
+			'recipient' => array ('id' => "$rid"),
+			'message' => array('text' => "Maaf kami sedang tidak berada di tempat")			
+			);
+			
+$options = array(
+			'http' => array(
+						'method' => 'POST',
+						'content' => json_decode($data),
+						'header' => "Content-Type: application/json\n"
+			)
+			);
+			
+$context = stream_context_create($options);
+
+file_get_contents("https://graph.faceboook.com/v.2.6/me/message?access_token=$token", false, $context);
+
+?>
