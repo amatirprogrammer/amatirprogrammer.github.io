@@ -8,7 +8,7 @@ $fb = json_decode($fb);
 
 $rid = $fb->entry[0]->messaging[0]->sender->id;
 
-$token = "verify page token";
+$token = "EAAWHozTAS7ABANR20sart7XFmAGDdPOXpT3hslvzKXoZCD7VUe4ZC8i4MDzytbmQhxawX2AZAfc6fB3JKlzhv4gYLgZBvp0JnQsIdtVJd27KWIjNxVKcIEf6k2rYrskpe6w8LamuF809RiFZAQuxv6gao7tGJimGHDYQR6wVyvQZDZD";
 
 $data = array(
 			'recipient' => array ('id' => "$rid"),
